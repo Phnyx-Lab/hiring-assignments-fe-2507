@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Gemini Streaming API
+  version: 1.0.0
+  description: A simple API to stream responses from Google Gemini.
+
+servers:
+  - url: "https://fovgrzavnazdgdoxzzan.supabase.co/functions/v1/chat"
+    description: Supabase Edge Function for Gemini Streaming
+
+paths:
+  /:
+    post:
+      summary: Start Gemini Stream
+      description: Sends a prompt and receives a real-time stream of events (SSE). Requires JWT authentication.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  example: "Tell me a short story."
+              required:
+                - prompt
+      responses:
+        "200":
+          description: A stream of Server-Sent Events.
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                example: 'data: {"candidates": [{"content": {"parts": [{"text": "Once upon a time"}]}}]}'
+        "401":
+          description: Unauthorized. Missing or invalid JWT.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
