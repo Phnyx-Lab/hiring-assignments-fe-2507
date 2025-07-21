@@ -23,7 +23,7 @@ paths:
               $ref: '#/components/schemas/QueryInput'
       responses:
         '200':
-          description: 성공적인 SSE 스트림 응답. 각 이벤트는 'data: {"text": "..."}' 형식의 JSON입니다.
+          description: "성공적인 SSE 스트림 응답. 각 이벤트는 data: {\"text\": \"...\"} 형식의 JSON입니다."
           content:
             text/event-stream:
               schema:
