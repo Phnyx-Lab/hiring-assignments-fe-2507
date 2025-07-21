@@ -1,46 +1,190 @@
 openapi: 3.0.0
 info:
-  title: Gemini Streaming API
+  title: 최종 프로젝트 API 명세
+  description: Gemini 채팅, 텍스트 스트리밍, 프로젝트 CRUD 기능을 제공하는 API
   version: 1.0.0
-  description: A simple API to stream responses from Google Gemini.
 
 servers:
-  - url: "https://fovgrzavnazdgdoxzzan.supabase.co/functions/v1/chat"
-    description: Supabase Edge Function for Gemini Streaming
+  - url: "https://<YOUR-PROJECT-REF>.supabase.co/functions/v1"
+    description: Supabase Edge Function 서버
 
 paths:
-  /:
+  /answer:
     post:
-      summary: Start Gemini Stream
-      description: Sends a prompt and receives a real-time stream of events (SSE). Requires JWT authentication.
-      security:
-        - bearerAuth: []
+      tags:
+        - Streaming
+      summary: 고정된 텍스트 스트리밍 (타이핑 효과)
+      description: 요청 본문과 상관없이, 서버에 미리 정의된 텍스트를 정해진 간격으로 스트리밍합니다.
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                prompt:
-                  type: string
-                  example: "Tell me a short story."
-              required:
-                - prompt
+              $ref: '#/components/schemas/QueryInput'
       responses:
-        "200":
-          description: A stream of Server-Sent Events.
+        '200':
+          description: 성공적인 SSE 스트림 응답
           content:
             text/event-stream:
               schema:
                 type: string
-                example: 'data: {"candidates": [{"content": {"parts": [{"text": "Once upon a time"}]}}]}'
-        "401":
-          description: Unauthorized. Missing or invalid JWT.
+                example: "미리 정의된 텍스트 조각"
+        '400':
+          description: 잘못된 요청
+        '405':
+          description: 허용되지 않은 메서드
+
+  /project:
+    get:
+      tags:
+        - Projects
+      summary: 모든 프로젝트 목록 조회
+      description: 데이터베이스에 저장된 모든 프로젝트의 목록을 반환합니다.
+      responses:
+        '200':
+          description: 성공적인 응답
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        '500':
+          description: 서버 내부 오류
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Projects
+      summary: 새 프로젝트 생성
+      description: 새로운 프로젝트를 생성하고 생성된 프로젝트의 ID를 반환합니다.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectNameInput'
+      responses:
+        '201':
+          description: 성공적으로 생성됨
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+        '400':
+          description: 잘못된 요청 (e.g., name 필드 누락)
+        '500':
+          description: 서버 내부 오류
+    patch:
+      tags:
+        - Projects
+      summary: 프로젝트 이름 수정
+      description: 지정된 ID의 프로젝트 이름을 수정합니다.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectUpdateInput'
+      responses:
+        '200':
+          description: 성공적으로 수정됨
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+        '400':
+          description: 잘못된 요청 (e.g., id 또는 name 필드 누락)
+        '500':
+          description: 서버 내부 오류
+    delete:
+      tags:
+        - Projects
+      summary: 프로젝트 삭제
+      description: 지정된 ID의 프로젝트를 삭제합니다.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectIdInput'
+      responses:
+        '200':
+          description: 성공적으로 삭제됨
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+        '400':
+          description: 잘못된 요청 (e.g., id 필드 누락)
+        '500':
+          description: 서버 내부 오류
 
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+  schemas:
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    QueryInput:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          example: "Supabase 엣지 함수에 대해 알려줘."
+    ProjectNameInput:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: "새로운 기획 프로젝트"
+    ProjectIdInput:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+    ProjectUpdateInput:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        name:
+          type: string
+          example: "수정된 기획 프로젝트"
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Operation successful"
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
