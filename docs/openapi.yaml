@@ -1,19 +1,19 @@
 openapi: 3.0.0
 info:
-  title: 최종 프로젝트 API 명세
-  description: Gemini 채팅, 텍스트 스트리밍, 프로젝트 CRUD 기능을 제공하는 API
-  version: 1.0.0
+  title: Frontend 과제 프로젝트 API 명세
+  description: 텍스트 스트리밍 및 프로젝트 CRUD 기능을 제공하는 API
+  version: 25.07
 
 servers:
-  - url: "https://<YOUR-PROJECT-REF>.supabase.co/functions/v1"
-    description: Supabase Edge Function 서버
+  - url: "https://fovgrzavnazdgdoxzzan.supabase.co/functions/v1"
+    description: Supabase 기반 Backend 서버
 
 paths:
   /answer:
     post:
       tags:
         - Streaming
-      summary: 고정된 텍스트 스트리밍 (타이핑 효과)
+      summary: 쿼리에 따른 응답 텍스트 스트리밍
       description: 요청 본문과 상관없이, 서버에 미리 정의된 텍스트를 정해진 간격으로 스트리밍합니다.
       requestBody:
         required: true
@@ -23,12 +23,11 @@ paths:
               $ref: '#/components/schemas/QueryInput'
       responses:
         '200':
-          description: 성공적인 SSE 스트림 응답
+          description: 성공적인 SSE 스트림 응답. 각 이벤트는 'data: {"text": "..."}' 형식의 JSON입니다.
           content:
             text/event-stream:
               schema:
-                type: string
-                example: "미리 정의된 텍스트 조각"
+                $ref: '#/components/schemas/AnswerStreamChunk'
         '400':
           description: 잘못된 요청
         '405':
@@ -51,10 +50,6 @@ paths:
                   $ref: '#/components/schemas/Project'
         '500':
           description: 서버 내부 오류
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
     post:
       tags:
         - Projects
@@ -78,7 +73,7 @@ paths:
                     type: string
                     format: uuid
         '400':
-          description: 잘못된 요청 (e.g., name 필드 누락)
+          description: 잘못된 요청
         '500':
           description: 서버 내부 오류
     patch:
@@ -100,7 +95,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuccessMessage'
         '400':
-          description: 잘못된 요청 (e.g., id 또는 name 필드 누락)
+          description: 잘못된 요청
         '500':
           description: 서버 내부 오류
     delete:
@@ -122,7 +117,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuccessMessage'
         '400':
-          description: 잘못된 요청 (e.g., id 필드 누락)
+          description: 잘못된 요청
         '500':
           description: 서버 내부 오류
 
@@ -173,18 +168,21 @@ components:
         id:
           type: string
           format: uuid
-          example: "123e4567-e89b-12d3-a456-426614174000"
         name:
           type: string
-          example: "수정된 기획 프로젝트"
     SuccessMessage:
       type: object
       properties:
         message:
           type: string
-          example: "Operation successful"
     Error:
       type: object
       properties:
         error:
           type: string
+    AnswerStreamChunk:
+      type: object
+      properties:
+        text:
+          type: string
+          example: "텍스트 조각"
