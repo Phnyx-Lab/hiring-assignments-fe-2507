@@ -1,5 +1,5 @@
 # 프론트엔드 코딩 과제 안내
-저희 팀에 관심을 가져주셔서 감사합니다. 본 과제는 지원자님의 프론트엔드 개발 역량을 확인하고, 실제 업무 환경에서 마주할 수 있는 문제 해결 능력을 평가하기 위해 마련되었습니다.
+피닉스랩 프론트엔드팀에 관심을 가져주셔서 감사합니다. 본 과제는 지원자님의 프론트엔드 개발 역량을 확인하고, 실제 업무 환경에서 마주할 수 있는 문제 해결 능력을 평가하기 위해 마련되었습니다.
 ## 과제 안내
 - 문제 이해 시간: 2시간 내외
 - 문제 해결 시간: 10시간. 내외
@@ -26,3 +26,41 @@
 과제 안내 페이지 : https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
 Figma : TBD
 Swagger : https://phnyx-lab.github.io/hiring-assignments-fe-2507/
+
+--
+
+Frontend Coding Assignment Guide
+
+Thank you for your interest in the Frontend team at Phnyx Lab. This assignment is designed to assess your frontend development skills and evaluate your problem-solving abilities in a real work environment.
+
+Assignment Overview
+	•	Understanding the requirements: ~2 hours
+	•	Implementation time: ~10 hours
+	•	Total estimated time: ~12 hours (manageable over a weekend)
+	•	AI usage: You may use AI tools (e.g., ChatGPT) during this assignment.
+
+Assignment Details
+
+Create a project based on the provided scenario and choose one of the two optional tasks below for further development.
+
+Required Features
+	•	Project Management
+	•	Create, update, and delete projects.
+	•	Chatbot
+	•	Receive structured responses from the server via SSE (Server-Sent Events) in real time based on user input, render them as HTML, and display them on the page.
+	•	External libraries are allowed.
+	•	RAG Query
+	•	Receive Markdown-formatted responses from the server via SSE in real time based on user input, render them as HTML, and display them on the page.
+	•	External libraries are allowed. If rendered content includes quoted links, add functionality to highlight the corresponding section when navigating to the linked website (template provided).
+
+Technical Requirements (Common)
+	•	Design Implementation: Match the Figma design exactly.
+	•	API Communication: Support both standard HTTP responses and event streams like SSE.
+	•	BFF (Backend For Frontend): Optional; implement if you find it necessary.
+
+The assignment is to be completed in your own environment. You will receive detailed instructions by email once you start. Please submit your results within 48 hours of receiving the assignment. If you have any questions, feel free to ask. We look forward to your great work.
+
+Appendix
+	•	Assignment page: https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
+	•	Figma: TBD
+	•	Swagger: https://phnyx-lab.github.io/hiring-assignments-fe-2507/
