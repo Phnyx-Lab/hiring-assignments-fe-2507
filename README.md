@@ -15,7 +15,12 @@
   - 기술 요구사항: 외부 라이브러리 사용을 허용합니다.
 - RAG 질의
   - 기능: 사용자 입력 시 서버로부터 SSE(Server-Sent Events)를 통해 Markdown 형식의 응답을 실시간으로 수신하고, 이를 HTML로 렌더링하여 화면에 출력합니다.
-  - 기술 요구사항: 외부 라이브러리 사용을 허용합니다. 렌더링된 내용 중 인용구 링크가 있을 경우, 해당 웹사이트로 이동 시 특정 영역을 하이라이트하는 기능(템플릿 제공 예정)을 추가해야 합니다.
+  - 기술 요구사항: 외부 라이브러리 사용을 허용합니다. 렌더링된 내용 중 인용구([#-#])가 있을 경우 아래와 같이 클릭 가능한 UI로 개발합니다.
+    - 인용구는 [{docnum}-{index}] 구조로 구성됩니다.
+    - 화면에는 {docnum}만 노출됩니다.
+    - 인용구에 동일한 {docnum}이 여럿일 경우 하나의 {docnum}만 노출합니다.
+    - 인용구를 클릭하면 해당하는 docnum의 인용구({docnum}-{index}) 목록을 browser alert을 통해 보여줍니다.
+    - 인용구 앞 문단 전체도 클릭 가능하도록 해야하며, 이를 클릭 시 해당하는 모든 인용구 목록을 browser alert을 통해 보여줍니다.
 ## 기술적 요구사항 (공통)
 - 디자인 구현: Figma로 제공된 디자인과 동일하게 웹 페이지를 구현해야 합니다.
 - API 통신: 일반적인 HTTP Response 뿐만 아니라, SSE(Server-Sent Events)와 같은 이벤트 스트림 방식의 통신에도 대응할 수 있어야 합니다.
@@ -52,7 +57,12 @@ Create a project based on the provided scenario and choose one of the two option
   - External libraries are allowed.
 - RAG Query
   - Receive Markdown-formatted responses from the server via SSE in real time based on user input, render them as HTML, and display them on the page.
-  - External libraries are allowed. If rendered content includes quoted links, add functionality to highlight the corresponding section when navigating to the linked website (template provided).
+  - Allows the use of external libraries. If there is a quote ([#-#]) in the rendered content, develop it as a clickable UI as shown below.
+    - Quotes consist of the structure [{docnum}-{index}].
+    - Only {docnum} is displayed on the screen.
+    - If there are multiple identical {docnum}s in the quotes, only one {docnum} is displayed.
+    - When a quote is clicked, a list of quotes ({docnum}-{index}) for the corresponding docnum is displayed through a browser alert.
+    - The entire paragraph before the quote must also be clickable, and when clicked, a list of all corresponding quotes is displayed through a browser alert.
 
 ## Technical Requirements (Common)
 - Design Implementation: Match the Figma design exactly.
