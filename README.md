@@ -25,7 +25,7 @@
 
 ## Appendix
 - 과제 안내 페이지 : https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
-- Figma : TBD
+- Figma : https://www.figma.com/design/EGRDusCmKGHq0zE5N6NO4B/Frontend-Assignment?node-id=0-1&t=JPyKrmzB3aOuTRha-1
 - Swagger : https://phnyx-lab.github.io/hiring-assignments-fe-2507/
 
 --
@@ -63,5 +63,5 @@ The assignment is to be completed in your own environment. You will receive deta
 
 ## Appendix
 - Assignment page: https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
-- Figma: TBD
+- Figma: https://www.figma.com/design/EGRDusCmKGHq0zE5N6NO4B/Frontend-Assignment?node-id=0-1&t=JPyKrmzB3aOuTRha-1
 - Swagger: https://phnyx-lab.github.io/hiring-assignments-fe-2507/
