@@ -22,11 +22,12 @@
     - 인용구를 클릭하면 해당하는 docnum의 인용구({docnum}-{index}) 목록을 browser alert을 통해 보여줍니다.
     - 인용구 앞 문단 전체도 클릭 가능하도록 해야하며, 이를 클릭 시 해당하는 모든 인용구 목록을 browser alert을 통해 보여줍니다.
 ## 기술적 요구사항 (공통)
+- 사용 언어 및 프레임워크: React 18 or 19 (Next.js 사용 가능), TypeScript, Tailwind
 - 디자인 구현: Figma로 제공된 디자인과 동일하게 웹 페이지를 구현해야 합니다.
 - API 통신: 일반적인 HTTP Response 뿐만 아니라, SSE(Server-Sent Events)와 같은 이벤트 스트림 방식의 통신에도 대응할 수 있어야 합니다.
 - BFF(Backend For Frontend): BFF 구현은 선택 사항입니다. 필요하다고 판단될 경우 구현하셔도 좋습니다.
   
-과제 수행 방식과제는 지원자님의 자율적인 환경에서 진행됩니다. 과제 시작 시 메일로 상세 과제 내용이 전달되며, 전달받은 시점으로부터 48시간 이내에 결과물을 회신해 주시면 됩니다.궁금한 점이 있으시면 언제든지 문의해 주십시오. 지원자님의 멋진 결과물을 기대합니다.
+과제 수행 방식과제는 지원자님의 자율적인 환경에서 진행됩니다. 과제 시작 시 메일로 상세 과제 내용이 전달되며, 전달받은 시점으로부터 24시간 이내에 결과물을 회신해 주시면 됩니다. 궁금한 점이 있으시면 frontend@phnyx.ai로 언제든지 문의해 주십시오. 지원자님의 멋진 결과물을 기대합니다.
 
 ## Appendix
 - 과제 안내 페이지 : https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
@@ -65,11 +66,12 @@ Create a project based on the provided scenario and choose one of the two option
     - The entire paragraph before the quote must also be clickable, and when clicked, a list of all corresponding quotes is displayed through a browser alert.
 
 ## Technical Requirements (Common)
+- React 18 or 19 (Next.js available), TypeScript, Tailwind
 - Design Implementation: Match the Figma design exactly.
 - API Communication: Support both standard HTTP responses and event streams like SSE.
 - BFF (Backend For Frontend): Optional; implement if you find it necessary.
 
-The assignment is to be completed in your own environment. You will receive detailed instructions by email once you start. Please submit your results within 48 hours of receiving the assignment. If you have any questions, feel free to ask. We look forward to your great work.
+The assignment is to be completed in your own environment. You will receive detailed instructions by email once you start. Please submit your results within 24 hours of receiving the assignment. If you have any questions, feel free to ask to frontend@phnyx.ai. We look forward to your great work.
 
 ## Appendix
 - Assignment page: https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
