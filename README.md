@@ -20,47 +20,48 @@
 - 디자인 구현: Figma로 제공된 디자인과 동일하게 웹 페이지를 구현해야 합니다.
 - API 통신: 일반적인 HTTP Response 뿐만 아니라, SSE(Server-Sent Events)와 같은 이벤트 스트림 방식의 통신에도 대응할 수 있어야 합니다.
 - BFF(Backend For Frontend): BFF 구현은 선택 사항입니다. 필요하다고 판단될 경우 구현하셔도 좋습니다.
+  
 과제 수행 방식과제는 지원자님의 자율적인 환경에서 진행됩니다. 과제 시작 시 메일로 상세 과제 내용이 전달되며, 전달받은 시점으로부터 48시간 이내에 결과물을 회신해 주시면 됩니다.궁금한 점이 있으시면 언제든지 문의해 주십시오. 지원자님의 멋진 결과물을 기대합니다.
 
 ## Appendix
-과제 안내 페이지 : https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
-Figma : TBD
-Swagger : https://phnyx-lab.github.io/hiring-assignments-fe-2507/
+- 과제 안내 페이지 : https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
+- Figma : TBD
+- Swagger : https://phnyx-lab.github.io/hiring-assignments-fe-2507/
 
 --
 
-Frontend Coding Assignment Guide
+# Frontend Coding Assignment Guide
 
 Thank you for your interest in the Frontend team at Phnyx Lab. This assignment is designed to assess your frontend development skills and evaluate your problem-solving abilities in a real work environment.
 
-Assignment Overview
-	•	Understanding the requirements: ~2 hours
-	•	Implementation time: ~10 hours
-	•	Total estimated time: ~12 hours (manageable over a weekend)
-	•	AI usage: You may use AI tools (e.g., ChatGPT) during this assignment.
+## Assignment Overview
+- Understanding the requirements: ~2 hours
+- Implementation time: ~10 hours
+- Total estimated time: ~12 hours (manageable over a weekend)
+- AI usage: You may use AI tools (e.g., ChatGPT) during this assignment.
 
-Assignment Details
+## Assignment Details
 
 Create a project based on the provided scenario and choose one of the two optional tasks below for further development.
 
-Required Features
-	•	Project Management
-	•	Create, update, and delete projects.
-	•	Chatbot
-	•	Receive structured responses from the server via SSE (Server-Sent Events) in real time based on user input, render them as HTML, and display them on the page.
-	•	External libraries are allowed.
-	•	RAG Query
-	•	Receive Markdown-formatted responses from the server via SSE in real time based on user input, render them as HTML, and display them on the page.
-	•	External libraries are allowed. If rendered content includes quoted links, add functionality to highlight the corresponding section when navigating to the linked website (template provided).
+## Required Features
+- Project Management
+  - Create, update, and delete projects.
+- Chatbot
+  - Receive structured responses from the server via SSE (Server-Sent Events) in real time based on user input, render them as HTML, and display them on the page.
+  - External libraries are allowed.
+- RAG Query
+  - Receive Markdown-formatted responses from the server via SSE in real time based on user input, render them as HTML, and display them on the page.
+  - External libraries are allowed. If rendered content includes quoted links, add functionality to highlight the corresponding section when navigating to the linked website (template provided).
 
-Technical Requirements (Common)
-	•	Design Implementation: Match the Figma design exactly.
-	•	API Communication: Support both standard HTTP responses and event streams like SSE.
-	•	BFF (Backend For Frontend): Optional; implement if you find it necessary.
+## Technical Requirements (Common)
+- Design Implementation: Match the Figma design exactly.
+- API Communication: Support both standard HTTP responses and event streams like SSE.
+- BFF (Backend For Frontend): Optional; implement if you find it necessary.
 
 The assignment is to be completed in your own environment. You will receive detailed instructions by email once you start. Please submit your results within 48 hours of receiving the assignment. If you have any questions, feel free to ask. We look forward to your great work.
 
-Appendix
-	•	Assignment page: https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
-	•	Figma: TBD
-	•	Swagger: https://phnyx-lab.github.io/hiring-assignments-fe-2507/
+## Appendix
+- Assignment page: https://github.com/Phnyx-Lab/hiring-assignments-fe-2507
+- Figma: TBD
+- Swagger: https://phnyx-lab.github.io/hiring-assignments-fe-2507/
