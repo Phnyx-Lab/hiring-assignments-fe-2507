@@ -10,7 +10,7 @@ Thank you for your interest in the Frontend team at Phnyx Lab. This assignment i
 
 ## Assignment Details
 
-Create a project based on the provided scenario and choose one of the two optional tasks below for further development.
+Create a project based on the scenario given, and proceed to develop the tasks below.
 
 ## Required Features
 - Project Management
@@ -50,7 +50,7 @@ The assignment is to be completed in your own environment. You will receive deta
 - 총 예상 시간: 12시간 내외 (주말 동안 충분히 해결 가능한 수준)
 - AI 활용: 과제 수행 시 AI 도구(예: ChatGPT)의 활용을 허용합니다.
 ## 과제 내용
-주어진 시나리오에 따라 프로젝트를 생성하고, 아래 두 가지 선택 과제 중 하나를 선택하여 추가 개발을 진행해 주십시오.
+주어진 시나리오에 따라 프로젝트를 생성하고, 아래 과제 개발을 진행해 주십시오.
 ### 필수 구현 기능:
 - 프로젝트 관리
   - 기능: 프로젝트 생성, 수정, 삭제
